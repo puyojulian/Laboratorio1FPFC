@@ -11,6 +11,13 @@ package object FuncionesRecursivas {
     if (lista.isEmpty) 0 else contItemsR(lista)
   }
 
+  def ListaVacia(l: List[Int]): Int = if (l.isEmpty) 0 else 1
+  def tailLista(l: List[Int]) = if (l.tail.isEmpty) List() else l.tail
+  def tamIter(l: List[Int], cont: Int): Int = {
+    if (l.isEmpty) 0 else if (ListaVacia(tailLista(l)) > 0) tamIter(tailLista(l), cont + 1) else cont
+  }
+  def tamI(l: List[Int]) = tamIter(l, 1)
+
   // 1.2. Dividiento una lista en dos sublistas a partir de un pivote.
   def menoresQue(lista:List[Int], pivote:Int): List[Int] = {
     def agregarMenoresQue(l: List[Int]): List[Int] = {
@@ -52,6 +59,16 @@ package object FuncionesRecursivas {
       }
     }
     encontrarValorK(lista)
+  }
+
+  def k_elem2(l: List[Int], k: Int): Int = {
+    val c: Int = k
+
+    def k_elemCons(l: List[Int], c: Int, k: Int): Int = {
+      val tamMenores: Int = tamI(menoresQue(l, c))
+      if (tamMenores == k) c - 1: Int else k_elemCons(l, c + 1, k)
+    }
+    k_elemCons(l, c, k)
   }
 
   // 1.4. Ordenando una lista
