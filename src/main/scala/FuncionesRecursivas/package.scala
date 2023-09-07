@@ -6,9 +6,16 @@ package object FuncionesRecursivas {
   }
 
   // 1.1. Calcular el tamaño de una lista con un proceso iterativo
-  def tamRIter(lista: List[Int]): Int = {
+  def tamRIter(lista: List[Int]): Int = { // No es iterativa.
     def contItemsR(l: List[Int]) = 1 + tamRIter(l.tail)
     if (lista.isEmpty) 0 else contItemsR(lista)
+  }
+
+  def tamRIterV2(lista: List[Int]): Int = {
+    def contItemsR(l: List[Int], cont: Int): Int = {
+      if (l.isEmpty) cont else contItemsR(l.tail, cont + 1)
+    }
+    contItemsR(lista, 0)
   }
 
   def ListaVacia(l: List[Int]): Int = if (l.isEmpty) 0 else 1
