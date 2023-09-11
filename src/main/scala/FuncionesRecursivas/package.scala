@@ -56,14 +56,15 @@ package object FuncionesRecursivas {
   // 1.3. Calculando el k-esimo elemento de una lista
   def k_elem(lista: List[Int], k: Int): Int = {
     def encontrarValorK(l: List[Int]): Int = {
-      if (tamRIter(menoresQue(l,l.head)) == (k - 1))
-        l.head
-      else {
-        if(l.tail.isEmpty)
+      if (!l.isEmpty)
+        if (tamRIter(menoresQue(l,l.head)) == (k - 1))
           l.head
-        else
-          encontrarValorK(l.tail)
-      }
+        else {
+          if(l.tail.isEmpty)
+            l.head
+          else
+            encontrarValorK(l.tail)
+      } else -1
     }
     encontrarValorK(lista)
   }
@@ -72,8 +73,13 @@ package object FuncionesRecursivas {
     val c: Int = k
 
     def k_elemCons(l: List[Int], c: Int, k: Int): Int = {
-      val tamMenores: Int = tamI(menoresQue(l, c))
-      if (tamMenores == k) c - 1: Int else k_elemCons(l, c + 1, k)
+      if (!l.isEmpty) {
+        val tamMenores: Int = tamI(menoresQue(l, c))
+        if (tamMenores == k) c - 1: Int else k_elemCons(l, c + 1, k)
+      }
+      else {
+        -1
+      }
     }
     k_elemCons(l, c, k)
   }
