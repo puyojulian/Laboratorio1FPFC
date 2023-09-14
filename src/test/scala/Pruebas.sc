@@ -1,3 +1,10 @@
+/*
+Autores:  Julian Ernesto Puyo Mora <julian.puyo@correounivalle.edu.co> <202226905>
+          Sebastian Orrego Marin <orrego.sebastian@correounivalle.edu.co> <201941144>
+N° Taller: 01
+Fecha de realización: 14/09/2023
+*/
+
 import FuncionesRecursivas._
 val l0: List[Int] = List()
 val l1: List[Int] = List(10, 9, 13, 8, 11,  1, 12, 2, 3, 7, 6, 5, 4, 14, 15)

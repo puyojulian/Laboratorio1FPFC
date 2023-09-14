@@ -1,3 +1,10 @@
+/*
+Autores:  Julian Ernesto Puyo Mora <julian.puyo@correounivalle.edu.co> <202226905>
+          Sebastian Orrego Marin <orrego.sebastian@correounivalle.edu.co> <201941144>
+N° Taller: 01
+Fecha de realización: 14/09/2023
+*/
+
 package object FuncionesRecursivas {
   // 1.1. Calcular el tamaño de una lista con un proceso iterativo
   def tamI(lista: List[Int]): Int = {
